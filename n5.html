@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.8.3.min.js"></script>
+    <script>
+// htmlnset value        
+        $(document).ready(function(){
+            $("#ht").click(function(){
+                $(".inner").html("hello Nitin yadav");
+            })
+
+// html get value mh jitne bi tag laga rkhe hai show hoga
+            $("#htmlget").click(function(){
+            //    alert( $(".outer h3").html())
+            var a= $(".inner").html();
+             alert(a);
+            })
+
+// text get value mh without tag word show krav ga
+
+ $("#textget").click(function(){
+               var a= $(".inner").text();
+               alert(a);
+            })
+// append
+            $("#ap").click(function(){
+                $(".inner h4").append("hello haryana");
+            })
+// prepend
+$("#pr").click(function(){
+                $(".inner h4").prepend("hello haryana  ");
+            }) 
+            
+            
+//  remove method = mh pura div remove ho jayega 
+
+
+            // $("#ch").click(function(){
+            //     $(".inner").children();
+            // })
+
+            $("#removemethod").click(function(){
+                $(".inner").remove();
+            })
+ 
+// empty method= mh div kk under kk heading remove hogye
+            $("#emptymethod").click(function(){
+                $(".inner").empty();
+            })
+
+
+// value            
+            $("#va").click(function(){
+                a = $("#vr").val();
+                alert(a); 
+            })
+
+// find
+
+$("#fi").click(function(){
+                $(".inner").find(".box13").css("background-color","red");
+            })
+
+// on function multipal method in one function  
+     
+            $("#multipal").on({
+// 1.click                 
+    "click":function(){
+        $("div.inner").children().css("background-color","red");
+    },
+
+// 2.mouseenter(hover)
+
+"mouseenter":function(){
+    $("div.inner").children().css("background-color","black");
+    $("#multipal").toggleClass("add");
+},
+
+// 3mouseleave
+"mouseleave":function(){
+    $("div.inner").children().css("background-color","yellow");
+
+    
+},
+// 4.keypress(koi bi keyboard sh key press krne sh change)
+"keypress":function(){
+    $("div.inner").children().css("background-color","pink");
+
+    
+},
+
+// 5.keydown(button pr click krne kk baad ydi downarrow key press kre to change hoga)
+"keydown":function(){
+    $("div.inner").children().css("background-color","orange");
+
+    
+},
+
+// 6.keyup
+"keyup":function(){
+    $("div.inner").children().css("background-color","blue");
+
+    
+},
+
+// 7.doubleclick
+"dblclick":function(){
+    $("div.inner").children().css("background-color","grey");
+
+    
+},
+// 8.button design
+// "mouseenter":function(){
+//     $("#multipal").toggleClass("add")
+// }
+
+})
+
+
+// hide&show Methods
+$("#hd").click(function(){
+    $(".inner").hide(2000);
+})
+$("#sh").click(function(){
+    $(".inner").show();
+})
+
+// toggle(show&hide ek sath krna)
+$("#tg").click(function(){
+    $(".inner").toggle();
+})
+// fadeout bi hide ka work krta hai but diffence yh hai ki fadeout krna hai jisko uski light slow gyab hogi
+$("#fdo").click(function(){
+    $(".inner").fadeOut(2000);
+})
+// fadein method
+$("#fdi").click(function(){
+    $(".inner").fadeIn(2000);
+})
+// fadetoggle method
+$("#fdt").click(function(){
+    $(".inner").fadeToggle(2000);
+})
+
+// fadeto method opacity(transperent) kk liye
+$("#fdtt").click(function(){
+    $(".inner").fadeTo(2000,0.2);
+})
+
+// sliding method 
+
+
+$("#sldup").click(function(){
+    $(".inner").slideUp(2000);
+})
+$("#slddown").click(function(){
+    $(".inner").slideDown(2000);
+})
+$("#sldtoggle").click(function(){
+    $(".inner").slideToggle(2000);
+})
+     
+// Animation Method mh jis pr animate method use kr gye uss id ya class pr sytle mh position deni hogi jbi animation left right top bottom hoga
+// width:"toggle" width:"hide" width,height etc mh hume show hide toggle method bi dh skte hai
+
+
+$("#animat").click(function(){
+    $(".inner #box").animate({
+        left:"250px",
+        width:"300px",
+        opacity:"0.2"
+},3000);
+})
+
+
+
+$("#multianimat").click(function(){
+    $(".inner #box").animate({
+        left:"250px",
+        width:"300px",
+        // opacity:"0.2"
+},3000);
+$(".inner #box").animate({
+        top:"250px",
+        width:"300px",
+        
+});
+$(".inner #box").animate({
+    // animation mh jo bi (hyfen) hai usko ess type sh likhna hoga font-size ko hyfen htt kr next word capital likhna hoga fontSize
+        fontSize:"50px", 
+        width:"300px",
+    
+});
+})
+
+// callback function hum kis bi ((method)) mh laga skte hai
+$("#callbackhide").click(function(){
+    $("#box").hide("slow",function(){
+        alert(" this is a call back function hide")
+    })
+})
+$("#callbackslide").click(function(){
+    $(".inner").slideUp(2000,function(){
+        alert("this is a call back function slide up")
+    })
+})
+
+// chaining methods
+
+// With jQuery, you can chain together actions/methods.
+
+// Chaining allows us to run multiple jQuery methods (on the same element) within a single statement.
+
+$("#chainingmethod").click(function(){
+    $(".inner").slideUp(2000).slideDown(2000).hide(2000).show(2000);
+})
+
+$("#chainingwithcss").click(function(){
+    $(".inner").slideUp(2000,function(){
+$(".inner").css("background-color","red")
+    }).slideDown(2000,function(){
+$(".inner").css("background-color","blue")
+    }).hide(2000,function(){
+$(".inner").css("background-color","grey")
+    }).show(2000,function(){
+$(".inner").css("background-color","purple")
+    });
+})
+
+
+// window events 
+
+// scroll event
+$(window).scroll(function(){
+    $(".outer").css("background","red");
+});
+
+// resize event
+$(window).resize(function(){
+    $(".outer").css("background","orange");
+});
+
+// class method
+
+// addclass mh style mh ydi koi class bna kk use under style dh rhaki hai to usko add
+
+$("#addclassbtn").click(function(){
+    $(".inner").addClass("add")
+})
+
+
+// remove class
+$("#removeclassbtn").click(function(){
+    $(".inner").removeClass("add")
+})
+
+// toggleclass
+$("#toggleclassbtn").click(function(){
+    $(".inner").toggleClass("add")
+})
+
+})
+
+
+// buttondesign withtoggleclass
+$(document).ready(function(){
+    $("#btndesign").on("mouseover mouseout",function(){
+        $("#btndesign").toggleClass("add")
+    })
+})
+
+// multi event in on method
+$(document).ready(function(){
+    $("#multievent2").on("mouseover mouseout",function(){
+        $(".inner").toggleClass("add")
+    })
+})
+
+// replace method 
+$(document).ready(function(){
+            $("#replacemethod").click(function(){
+                $(".inner").slideToggle(2000,function(){
+                    $(".inner h4").replaceWith("<h4>hello everyone</h4>")
+                })
+                   
+                
+            });
+           
+        });
+
+// parentmethod 
+  $(document).ready(function(){
+    $("#parentmethod").click(function(){
+        $(".inner").parent().css("background-color","purple")
+    })
+})
+  
+// childrenmethod= inner kk under jitne bi tag hai un pr css lag jayga
+$(document).ready(function(){
+    $("#childrenmethod").click(function(){
+        $(".inner").children().css("background-color","brown")
+    })
+})
+
+// attr method 
+$(document).ready(function(){
+            $("#attrmethod").click(function(){
+                $("#image").slideUp(2000).slideDown(1000,function(){
+                    
+                    $("#image img").attr("src","../images/vegetables.jpg");  
+                })
+                
+                
+            });
+  
+        });
+
+  
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .outer{
+            border: 2px solid green;
+            width: 800px;
+            height: 200px;
+            margin: 50px auto;
+        }
+        .inner{
+            border: 2px solid green;
+            width: 700px;
+            height: 150px;
+            margin: auto;
+            background-color: violet;
+    
+        }
+       
+        #box{
+            border: 2px solid green;
+            width: 200px;
+            height: 90px;
+            display: inline-block;
+margin-left: 20px;
+margin-top: 20px;
+background-color: chartreuse;
+position: relative;
+        }
+        #image img{
+            width: 100px;
+            height: 90px;
+            
+        
+        }
+
+        .add{
+            border: 6px dotted greenyellow;
+            background-color: burlywood;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- button -->
+<button id="ht">HTML</button>
+<button id="htmlget">htmlget</button>
+<button id="textget">textget</button>
+
+<button id="ap">APPEND</button>
+<button id="pr">prepend</button>
+<button id="removemethod">Remove</button>
+<button id="emptymethod">emptymethod</button>
+<button id="va">VALUE</button>
+<button id="fi">FIND</button>
+<button id="multipal">On function</button>
+<button id="hd">Hide</button>
+<button id="sh">show</button>
+<button id="tg">Toggle show&hide</button>
+<button id="fdo">FadeOut</button>
+<button id="fdi">FadeIn</button>
+<button id="fdt">FadeToggle</button>
+<button id="fdtt">FadeTo</button>
+<button id="sldup">SlideUp</button>    
+<button id="slddown">SlideDown</button>    
+<button id="sldtoggle">SlideToggle</button>    
+<button id="animat">Animate</button>
+<button id="multianimat">MultipleAnimante</button>
+<button id="callbackhide">callback hide</button>
+<button id="callbackslide">callback slide</button>
+<button id="chainingmethod">Chaining</button>
+<button id="chainingwithcss">Chainingwithcss</button>
+<button id="scrollwindow">Scroll</button>
+<button id="addclassbtn">Addclass</button>
+<button id="removeclassbtn">removeclass</button>
+<button id="toggleclassbtn">toggleclass</button>
+<button id="btndesign">btndesign</button>
+<button id="multievent2">multievent2</button>
+
+<button id="replacemethod">replacewith</button>
+<button id="parentmethod">innerparent</button>
+<button id="childrenmethod">innerchildren</button>
+<button id="attrmethod">attribute</button>
+<!-- box ka container -->
+
+    <div class="container">
+        <div class="outer">
+           <h3>outer</h3>
+             <div class="inner">
+              <h4>inner</h4>
+              
+               <div id="box" class="box11">this is box 1</div>
+               <div id="box" class="box13">this is box 2</div>
+               <div id="box" class="box14">this is box 3</div>
+              </div>
+        <div>
+    <label for="">Name</label>
+    <input type="text" name="" id="vr">
+      </div>
+        </div>
+        <div id="image"><img src="../images/modi.jpg" alt=""></div>
+        <div class="abc">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum, est nobis aliquam ullam eveniet molestiae dolor voluptatem debitis maiores corrupti? Qui pariatur aliquid, ipsam repellat, consectetur est tempora eligendi voluptatum ab, libero vitae amet odio quidem eum molestias soluta. Eaque minus quia perferendis odio illum beatae minima. Veritatis, nihil sequi nesciunt assumenda aperiam enim provident nulla asperiores repellat, mollitia cupiditate delectus earum pariatur fuga voluptatibus maxime. Voluptatem libero laboriosam incidunt aperiam. Maiores eveniet facilis adipisci commodi nostrum exercitationem esse animi itaque accusamus harum, consectetur labore ab cupiditate nam expedita obcaecati? Laboriosam, pariatur repudiandae accusantium quibusdam consequatur rem, voluptates sint nisi amet nemo eius repellendus earum eligendi iste! Excepturi reprehenderit modi cum necessitatibus, nemo architecto temporibus quidem dignissimos incidunt fugit doloribus quia molestias, sed, error voluptate suscipit beatae. Qui, quas debitis maxime quae sit est in sapiente ullam sed! Numquam ut quos quisquam itaque expedita fuga est rerum? Ex molestias quaerat quis est, et, odit aliquam quia similique asperiores corrupti, ad rerum distinctio totam deleniti numquam ullam sint dicta fugit? Natus, similique architecto eos corporis esse numquam. Cum mollitia expedita repellendus illum quasi placeat atque quis, ea sed. Fugiat maxime quis laboriosam facilis aliquam harum dolore repudiandae atque, dolores, voluptatem odio.
+        </div>
+
+    </div>
+</body>
+</html>
